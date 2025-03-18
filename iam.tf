@@ -24,6 +24,14 @@ resource "aws_iam_role" "scanner" {
           }
         }
       },
+      {
+        Action = "sts:TagSession"
+        Effect = "Allow"
+        Sid    = "TagSession"
+        Principal = {
+          AWS = local.main_role_arn
+        }
+      },
     ]
   })
 
